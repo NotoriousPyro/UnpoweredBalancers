@@ -63,15 +63,15 @@ internal class UnpoweredBalancersData : IModData
 		string prefab,
 		EntityCostsTpl costs
 	) => new ZipperProtoBuilder(registrator)
-			.Start($"Unpowered {name} balancer", id)
-			.Description($"Allows distributing and prioritizing products using any of its two input and output ports.")
-			.SetCost(costs)
-			.SetElectricityConsumption(Mafi.Electricity.Zero)
-			.SetLayout(
-				new EntityLayoutParams(null, useNewLayoutSyntax: true, null, portsCanOnlyConnectToTransports: true),
-				setPortChar(registrator.PrototypesDb.GetOrThrow<IoPortShapeProto>(portShape).LayoutChar, "   D?+C?+   ", "E?+[1][1]+?B", "F?+[1][1]+?A", "   G?+H?+   ")
-			)
-			.SetCategories(Ids.ToolbarCategories.Transports)
-			.SetPrefabPath(prefab)
-			.BuildAndAdd();
+		.Start($"Unpowered {name} balancer", id)
+		.Description($"Allows distributing and prioritizing products using any of its two input and output ports.")
+		.SetCost(costs)
+		.SetElectricityConsumption(Mafi.Electricity.Zero)
+		.SetLayout(
+			new EntityLayoutParams(null, useNewLayoutSyntax: true, null, portsCanOnlyConnectToTransports: true),
+			setPortChar(registrator.PrototypesDb.GetOrThrow<IoPortShapeProto>(portShape).LayoutChar, "   D?+C?+   ", "E?+[1][1]+?B", "F?+[1][1]+?A", "   G?+H?+   ")
+		)
+		.SetCategories(Ids.ToolbarCategories.Transports)
+		.SetPrefabPath(prefab)
+		.BuildAndAdd();
 }

@@ -5,8 +5,8 @@ using Mafi.Core.Mods;
 
 namespace UnpoweredBalancers;
 
-public sealed class UnpoweredBalancers : DataOnlyMod {
-
+public sealed class UnpoweredBalancers : DataOnlyMod
+{
     // Name of this mod. It will be eventually shown to the player.
     public override string Name => "UnpoweredBalancers mod";
 
@@ -28,7 +28,7 @@ public sealed class UnpoweredBalancers : DataOnlyMod {
         Log.Info("UnpoweredBalancers: registering prototypes");
         registrator.RegisterData<UnpoweredBalancersData>();
         // Crashes the game for some reason
-        //registrator.RegisterDataWithInterface<IResearchNodesData>();
+        registrator.RegisterDataWithInterface<IResearchNodesData>();
     }
 
 }

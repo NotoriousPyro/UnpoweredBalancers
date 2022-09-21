@@ -16,8 +16,10 @@ internal class UnpoweredBalancersResearchData : IResearchNodesData
             .AddMachineToUnlock(UnpoweredBalancersIds.Machines.UnpoweredMoltenBalancer)
             .AddMachineToUnlock(UnpoweredBalancersIds.Machines.UnpoweredPipeBalancer)
             .AddMachineToUnlock(UnpoweredBalancersIds.Machines.UnpoweredUShapeBalancer)
+            .SetCosts(ResearchCostsTpl.Build.SetDifficulty(20))
             .BuildAndAdd();
-        nodeProto.GridPosition = new Vector2i(4, 31);
-        nodeProto.AddParent(registrator.PrototypesDb.GetOrThrow<ResearchNodeProto>(Ids.Research.TransportsBalancing));
+        nodeProto.GridPosition = new Vector2i(88, 23);
+        nodeProto.AddParent(registrator.PrototypesDb.GetOrThrow<ResearchNodeProto>(Ids.Research.ConveyorBeltsT3));
+        nodeProto.AddParent(registrator.PrototypesDb.GetOrThrow<ResearchNodeProto>(Ids.Research.PipeTransportsT3));
     }
 }
