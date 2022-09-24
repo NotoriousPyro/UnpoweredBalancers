@@ -11,16 +11,16 @@ namespace UnpoweredBalancers;
 
 internal class UnpoweredBalancersData : IModData
 {
-	public ZipperProto GetZipperProto(ProtoRegistrator registrator, IoPortShapeProto.ID portShape) =>
+	private ZipperProto getZipperProto(ProtoRegistrator registrator, IoPortShapeProto.ID portShape) =>
 		registrator.PrototypesDb.GetOrThrow<ZipperProto>(IdsCore.Transports.GetZipperIdFor(portShape));
 
 	public void RegisterData(ProtoRegistrator registrator)
 	{
 
-		ZipperProto flatZipperProto = GetZipperProto(registrator, Ids.IoPortShapes.FlatConveyor);
-		ZipperProto moltenZipperProto = GetZipperProto(registrator, Ids.IoPortShapes.MoltenMetalChannel);
-		ZipperProto uShapeZipperProto = GetZipperProto(registrator, Ids.IoPortShapes.LooseMaterialConveyor);
-		ZipperProto pipeZipperProto = GetZipperProto(registrator, Ids.IoPortShapes.Pipe);
+		ZipperProto flatZipperProto = getZipperProto(registrator, Ids.IoPortShapes.FlatConveyor);
+		ZipperProto moltenZipperProto = getZipperProto(registrator, Ids.IoPortShapes.MoltenMetalChannel);
+		ZipperProto uShapeZipperProto = getZipperProto(registrator, Ids.IoPortShapes.LooseMaterialConveyor);
+		ZipperProto pipeZipperProto = getZipperProto(registrator, Ids.IoPortShapes.Pipe);
 
 		register(
 			registrator,

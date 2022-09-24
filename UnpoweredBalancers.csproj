@@ -1,5 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <Import Project="PreBuild.target" />
+  <ItemGroup>
+    <SourceFiles Include="$(MSBuildProjectDirectory)\LICENSE" />
+    <SourceFiles Include="$(MSBuildProjectDirectory)\README.md" />
+  </ItemGroup>
+  <Target Name="ZipOutputPath" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
+    <MakeDir Directories="$(MSBuildProjectDirectory)\dist"/>
+    <Copy SourceFiles="@(SourceFiles)" DestinationFolder="$(OutputPath)" ContinueOnError="true" />
+    <ZipDirectory
+        SourceDirectory="$(OutputPath)"
+        DestinationFile="$(MSBuildProjectDirectory)\dist\$(MSBuildProjectName)-$(Configuration).zip" />
+  </Target>
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <TargetFramework>net46</TargetFramework>

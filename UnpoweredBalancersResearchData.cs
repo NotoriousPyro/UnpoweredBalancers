@@ -10,7 +10,7 @@ internal class UnpoweredBalancersResearchData : IResearchNodesData
     public void RegisterData(ProtoRegistrator registrator)
     {
         ResearchNodeProto nodeProto = registrator.ResearchNodeProtoBuilder
-            .Start("Research Unpowered balancers", UnpoweredBalancersIds.Research.UnlockUnpoweredBalancers)
+            .Start("Unpowered balancers", UnpoweredBalancersIds.Research.UnlockUnpoweredBalancers)
             .Description("Unpowered balancers have the same function of normal balancers but they require no electricity to operate.")
             .AddMachineToUnlock(UnpoweredBalancersIds.Machines.UnpoweredFlatBalancer)
             .AddMachineToUnlock(UnpoweredBalancersIds.Machines.UnpoweredMoltenBalancer)
