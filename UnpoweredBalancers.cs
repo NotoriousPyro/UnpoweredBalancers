@@ -23,11 +23,11 @@ public sealed class UnpoweredBalancers : DataOnlyMod
         Core.LogWithVersion(Log.Info, "constructed");
     }
 
-
     public override void RegisterPrototypes(ProtoRegistrator registrator)
     {
         Core.LogWithVersion(Log.Info, "registering prototypes");
         registrator.RegisterData<Machines.UnpoweredBalancersData>();
+        registrator.RegisterData<Machines.UnpoweredSortersData>();
         registrator.RegisterDataWithInterface<IResearchNodesData>();
     }
 

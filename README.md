@@ -1,6 +1,6 @@
 # UnpoweredBalancers
 
-Provides balancers to the game that do not require electricity to operate.
+Provides balancers and sorters to the game that do not require electricity to operate.
 
 # How to install
 
@@ -23,8 +23,11 @@ Download the latest release: https://github.com/NotoriousPyro/UnpoweredBalancers
 
 # How to use
 
-After research, simply place them down as you would a normal balancer.
+After research, simply place them down as you would a normal balancer/sorter.
 
 ## Research
+![Research: Unpowered](docs/research_unpowered.png)
 * **Unpowered balancers**: dependant on *Conveyor Belts III and Pipes III* first being completed.
-![Research: Incineration Plant](docs/research_unpoweredbalancers.png)
+
+* **Unpowered sorters**: dependant on *Unpowered balancers* first being completed.
+

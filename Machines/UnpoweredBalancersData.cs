@@ -13,10 +13,10 @@ internal class UnpoweredBalancersData : IModData
 {
     public void RegisterData(ProtoRegistrator registrator)
     {
-        ZipperProto flatZipperProto = registrator.GetZipperProto(Ids.IoPortShapes.FlatConveyor);
-        ZipperProto moltenZipperProto = registrator.GetZipperProto(Ids.IoPortShapes.MoltenMetalChannel);
-        ZipperProto uShapeZipperProto = registrator.GetZipperProto(Ids.IoPortShapes.LooseMaterialConveyor);
-        ZipperProto pipeZipperProto = registrator.GetZipperProto(Ids.IoPortShapes.Pipe);
+        ZipperProto flatZipperProto = registrator.PrototypesDb.GetZipperProto(Ids.IoPortShapes.FlatConveyor);
+        ZipperProto moltenZipperProto = registrator.PrototypesDb.GetZipperProto(Ids.IoPortShapes.MoltenMetalChannel);
+        ZipperProto uShapeZipperProto = registrator.PrototypesDb.GetZipperProto(Ids.IoPortShapes.LooseMaterialConveyor);
+        ZipperProto pipeZipperProto = registrator.PrototypesDb.GetZipperProto(Ids.IoPortShapes.Pipe);
 
         register(
             registrator,
@@ -56,16 +56,6 @@ internal class UnpoweredBalancersData : IModData
         );
     }
 
-    private static string[] setPortChar(char portChar, params string[] layout)
-    {
-        int i = 0;
-        for (int num = layout.Length; i < num; i++)
-        {
-            layout[i] = layout[i].Replace('?', portChar);
-        }
-        return layout;
-    }
-
     private void register(
         ProtoRegistrator registrator,
         IoPortShapeProto.ID portShape,
@@ -81,7 +71,7 @@ internal class UnpoweredBalancersData : IModData
             .SetElectricityConsumption(Mafi.Electricity.Zero)
             .SetLayout(
                 new EntityLayoutParams(null, useNewLayoutSyntax: true, null, portsCanOnlyConnectToTransports: true),
-                setPortChar(registrator.PrototypesDb.GetOrThrow<IoPortShapeProto>(portShape).LayoutChar, "   D?+C?+   ", "E?+[1][1]+?B", "F?+[1][1]+?A", "   G?+H?+   ")
+                Ports.SetLayout(registrator.PrototypesDb.GetOrThrow<IoPortShapeProto>(portShape).LayoutChar, "   D?+C?+   ", "E?+[1][1]+?B", "F?+[1][1]+?A", "   G?+H?+   ")
             )
             .SetCategories(Ids.ToolbarCategories.Transports)
             .SetPrefabPath(prefab)
